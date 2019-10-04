@@ -1,0 +1,41 @@
+{
+  "movie" :
+  [
+    {
+      "movieName": "Avatar",
+      "yearOfRelease": "2009",
+      "leadRole": "Sam Worthington"
+    },
+    {
+      "movieName": "Titanic",
+      "yearOfRelease": "1997",
+      "leadRole": "Leonardo DiCaprio"
+    },
+    {
+      "movieName": "The Terminator",
+      "yearOfRelease": "1984",
+      "leadRole": "Arnold Schwarzenegger"
+    },
+    {
+      "movieName": "Aliens",
+      "yearOfRelease": "1986",
+      "leadRole": "Sigourney Weaver"
+    },
+    {
+      "movieName": "The Abyss",
+      "yearOfRelease": "1989",
+      "leadRole": "Ed Harris"
+    },
+    {
+      "movieName": "True Lies",
+      "yearOfRelease": "1994",
+      "leadRole": "Arnold Schwarzenegger"
+    },
+    {
+      "movieName": "True Lies",
+      "yearOfRelease": "1994",
+      "leadRole": "Arnold Schwarzenegger"
+    }
+
+  ]
+}
