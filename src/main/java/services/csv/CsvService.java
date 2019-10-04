@@ -23,7 +23,6 @@ public class CsvService {
 
             Movie movie = new Movie();
             movie.setMovieName(movieDetails[0]);
-            movie.setYearOfRelease(movieDetails[1]);
             listOfMovieObjects.add(movie);
         }
 

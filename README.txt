@@ -24,7 +24,7 @@ Project Details:
 
 Project Structure:
 ===================
-1. main/java/entities - Entities to hild movie information
+1. main/java/entities - Entities to hold movie information
 2. main/java/services -  Services to interact with various data sources - omdb, json and csv sources
 3. main/java/utils -  Constants and helper functions
 

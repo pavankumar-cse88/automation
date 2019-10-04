@@ -11,11 +11,10 @@ import java.util.stream.Collectors;
 public class JsonService {
 
 
-    public Movie getMovieByName(String name, String year) {
+    public Movie getMovieByName(String name) {
         return getAllMoviesFromFile()
                 .stream()
                 .filter(movie -> movie.getMovieName().equals(name))
-                .filter(movie -> movie.getYearOfRelease().equals(year))
                 .collect(Collectors.toList())
                 .get(0);
     }

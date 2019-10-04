@@ -5,9 +5,9 @@ import entities.Movie;
 
 public class OmdbService {
 
-    public Movie getMovieDetails(String title, String yearOfRelease) {
+    public Movie getMovieDetails(String title) {
 
-        OmdbMovieResponse response = new OmdbClient().getMovieDetails(title, yearOfRelease);
+        OmdbMovieResponse response = new OmdbClient().getMovieDetails(title);
 
         return new OmdbResponseMapper().map(response);
 

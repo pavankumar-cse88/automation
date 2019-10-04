@@ -22,13 +22,13 @@ public class OmdbTests extends TestBase {
     @Test(dataProvider = "movieComparisionTestCases")
     public void compareMovieDetailsWithOmDb(Movie movie) throws ParseException {
 
-        test = report.startTest("Comparision of Movie Details for Movie : " + movie.getMovieName());
+        extentTest = extentReport.startTest("Comparision of Movie Details for Movie : " + movie.getMovieName());
 
-        Movie movieFromJson = new JsonService().getMovieByName(movie.getMovieName(), movie.getYearOfRelease());
-        Movie movieFromOmdb = new OmdbService().getMovieDetails(movie.getMovieName(), movie.getYearOfRelease());
+        Movie movieFromJson = new JsonService().getMovieByName(movie.getMovieName());
+        Movie movieFromOmdb = new OmdbService().getMovieDetails(movie.getMovieName());
 
-        test.log(LogStatus.INFO, "Movie Details from Json :" + movieFromJson.toString());
-        test.log(LogStatus.INFO, "Movie Details from OMDB :" + movieFromOmdb.toString());
+        extentTest.log(LogStatus.INFO, "Movie Details from Json :" + movieFromJson.toString());
+        extentTest.log(LogStatus.INFO, "Movie Details from OMDB :" + movieFromOmdb.toString());
 
         Assert.assertTrue(movieFromJson.equals(movieFromOmdb));
 

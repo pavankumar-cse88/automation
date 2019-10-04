@@ -11,12 +11,11 @@ public class OmdbClient {
 
     private OmdbMovieResponse omdbMovieResponse;
 
-    public OmdbMovieResponse getMovieDetails(String movieTitle, String yearOfRelease){
+    public OmdbMovieResponse getMovieDetails(String movieTitle){
 
         Response response = given()
                 .contentType(ContentType.JSON)
                 .queryParam("t", movieTitle)
-                .queryParam("y", yearOfRelease)
                 .queryParam("apikey", Constants.apiKey)
                 .get(Constants.omDbBaseUrl);
 
