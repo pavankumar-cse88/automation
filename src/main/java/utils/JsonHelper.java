@@ -16,6 +16,7 @@ public class JsonHelper {
 
         ObjectMapper mapper = new ObjectMapper();
         try {
+
             return mapper.readValue(jsonString, responseClass);
         } catch (IOException e) {
             e.printStackTrace();

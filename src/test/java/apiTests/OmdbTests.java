@@ -2,6 +2,7 @@ package apiTests;
 
 import entities.Movie;
 import com.relevantcodes.extentreports.LogStatus;
+import entities.Production;
 import org.json.simple.parser.ParseException;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -15,6 +16,7 @@ import java.io.IOException;
 import java.util.List;
 
 import static utils.Constants.jamesCameronFilMoGraPhyPath;
+import static utils.Constants.jamesCameronProductionPath;
 
 public class OmdbTests extends TestBase {
 
@@ -38,10 +40,37 @@ public class OmdbTests extends TestBase {
     public Object[] movieComparisionTestCases() throws IOException {
 
         CsvService csvService = new CsvService();
-        List<Movie> listOfMovieObjects = csvService.readFromCsv(jamesCameronFilMoGraPhyPath);
+        List<Movie> listOfMovieObjects = csvService.readMovieCsv(jamesCameronFilMoGraPhyPath);
         return listOfMovieObjects.toArray();
 
     }
+
+    @Test(dataProvider = "productionTestCases")
+    public void compareProductionDetailsWithOmDb(Production production){
+
+        extentTest = extentReport.startTest("Comparision of Production Details for Movie : " + production.getMovieName());
+
+        Production productionFromJson = new JsonService().getProductionByMovieName(production.getMovieName());
+        Production productionFromOmdb = new OmdbService().getProductionDetails(production.getMovieName());
+
+        extentTest.log(LogStatus.INFO, "Production Details from Json :" + productionFromJson.toString());
+        extentTest.log(LogStatus.INFO, "Production Details from OMDB :" + productionFromOmdb.toString());
+
+        Assert.assertTrue(productionFromJson.equals(productionFromOmdb));
+
+
+    }
+
+    @DataProvider(name = "productionTestCases")
+    public Object[] productionTestCases() throws IOException {
+
+        CsvService csvService = new CsvService();
+        List<Production> listOfProductionObjects = csvService.readProductionsCsv(jamesCameronProductionPath);
+        return listOfProductionObjects.toArray();
+
+    }
+
+
 
 }
 

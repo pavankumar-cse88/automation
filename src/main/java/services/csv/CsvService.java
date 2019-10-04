@@ -2,6 +2,7 @@ package services.csv;
 
 import com.opencsv.CSVReader;
 import entities.Movie;
+import entities.Production;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -10,7 +11,7 @@ import java.util.List;
 
 public class CsvService {
 
-    public List<Movie> readFromCsv(String path) throws IOException {
+    public List<Movie> readMovieCsv(String path) throws IOException {
 
         CSVReader csvReader = null;
         String[] movieDetails = null;
@@ -27,6 +28,26 @@ public class CsvService {
         }
 
         return listOfMovieObjects;
+
+    }
+
+    public List<Production> readProductionsCsv(String path) throws IOException {
+
+        CSVReader csvReader = null;
+        String[] productionDetails = null;
+
+        csvReader = new CSVReader(new FileReader(path), ',', '"', 1);
+
+        List<Production> listOfProductionObjects = new ArrayList<>();
+
+        while ((productionDetails = csvReader.readNext()) != null) {
+
+            Production production = new Production();
+            production.setMovieName(productionDetails[0]);
+            listOfProductionObjects.add(production);
+        }
+
+        return listOfProductionObjects;
 
     }
 }

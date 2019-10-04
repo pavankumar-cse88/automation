@@ -1,0 +1,23 @@
+{
+  "production" :
+  [
+    {
+      "movieName": "The Terminator",
+      "productionName": "Orion Pictures Corporation"
+    },
+    {
+      "movieName": "Aliens",
+      "productionName": "20th Century Fox"
+    },
+    {
+      "movieName": "The Abyss",
+      "productionName": "20th Century Fox Film Corporat"
+    },
+    {
+      "movieName": "True Lies",
+      "productionName": "20th Century Fox"
+
+    }
+
+  ]
+}
