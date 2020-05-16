@@ -1,5 +1,6 @@
 package services.omdb;
 
+import entities.Awards;
 import entities.Production;
 import services.omdb.response.OmdbMovieResponse;
 import entities.Movie;
@@ -21,5 +22,13 @@ public class OmdbResponseMapper {
         String production = response.getProduction();
 
         return new Production(movieName,production);
+    }
+
+    public Awards mapAwards(OmdbMovieResponse response) {
+
+        String movieName = response.getTitle();
+        String awards = response.getAwards();
+
+        return new Awards(awards,movieName);
     }
 }

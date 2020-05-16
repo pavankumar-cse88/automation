@@ -1,0 +1,23 @@
+{
+  "awards" :
+  [
+    {
+      "movieName": "The Terminator",
+      "awards": "7 wins & 6 nominations."
+    },
+    {
+      "movieName": "Aliens",
+      "awards": "Won 2 Oscars. Another 18 wins & 23 nominations."
+    },
+    {
+      "movieName": "The Abyss",
+      "awards": "Won 1 Oscar. Another 8 wins & 15 nominations."
+    },
+    {
+      "movieName": "True Lies",
+      "awards": "Nominated for 1 Oscar. Another 8 wins & 22 nominations."
+
+    }
+
+  ]
+}

@@ -21,3 +21,7 @@ out/
 .gradle/
 gradlew
 gradlew.bat
+settings.gradle
+allure-results/
+*.html
+gradle/

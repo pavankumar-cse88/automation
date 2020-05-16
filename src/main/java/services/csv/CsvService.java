@@ -1,6 +1,7 @@
 package services.csv;
 
 import com.opencsv.CSVReader;
+import entities.Awards;
 import entities.Movie;
 import entities.Production;
 
@@ -48,6 +49,26 @@ public class CsvService {
         }
 
         return listOfProductionObjects;
+
+    }
+
+    public List<Awards> readAwardsCsv(String path) throws IOException {
+
+        CSVReader csvReader = null;
+        String[] awardsDetails = null;
+
+        csvReader = new CSVReader(new FileReader(path), ',', '"', 1);
+
+        List<Awards> listOfAwards = new ArrayList<>();
+
+        while ((awardsDetails = csvReader.readNext()) != null) {
+
+            Awards awards = new Awards();
+            awards.setMovieName(awardsDetails[0]);
+            listOfAwards.add(awards);
+        }
+
+        return listOfAwards;
 
     }
 }

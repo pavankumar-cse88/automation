@@ -1,9 +1,6 @@
 package services.json;
 
-import entities.Movie;
-import entities.MoviesList;
-import entities.Production;
-import entities.ProductionList;
+import entities.*;
 import utils.JsonHelper;
 
 import java.io.InputStream;
@@ -54,5 +51,24 @@ public class JsonService {
         ProductionList productionList = (ProductionList) JsonHelper.getObject(fileContent, ProductionList.class);
         return productionList.getProductions();
 
+    }
+
+    private List<Awards> getAllAwardsDetailsFromFile() {
+
+        String fileName = "testData/AwardsData.json";
+
+        String fileContent = getFileContentsAsString(fileName);
+        AwardsList awardsList= (AwardsList) JsonHelper.getObject(fileContent, AwardsList.class);
+        return awardsList.getAwards();
+
+    }
+
+    public Awards getAwardsByMovieName(String name){
+
+        return getAllAwardsDetailsFromFile()
+                .stream()
+                .filter(awards -> awards.getMovieName().equals(name))
+                .collect(Collectors.toList())
+                .get(0);
     }
 }

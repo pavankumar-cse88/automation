@@ -2,14 +2,13 @@ package entities;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.Objects;
 
 @Getter
 @Setter
 public class Production {
 
-    private String movieName;
+    private String  movieName;
     private String productionName;
 
     public Production(){
@@ -24,10 +23,6 @@ public class Production {
 
     @Override
     public boolean equals(Object o) {
-
-        if (this == o) return true;
-
-        if (o == null || getClass() != o.getClass()) return false;
 
         Production production = (Production) o;
         return Objects.equals(productionName, production.productionName);
